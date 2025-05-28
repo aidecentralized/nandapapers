@@ -66,11 +66,12 @@ AI is shifting from monolithic models to ecosystems of autonomous agents. As bil
 
 ## Learn More
 
-- [A Perspective on Decentralizing AI](/decentralized_ML_perspective-16.pdf)
-- [Game of Agents – Episode 1 & 2](Game%20of%20Agents%20—%20Episode%201_%20Let%20there%20be%20Agents%20_%20by%20Abhishek%20Singh%20_%20Medium.pdf)
-- [Verified AgentFacts & NANDA Registry Paper](v0.1%20Scaling%20Trust%20Beyond%20DNS%20-%20NANDA-Registry.pdf)
-- [Internet of Agents Architecture](NandaRegistry_AgenticChat.pdf)
-
+- [A Perspective on Decentralizing AI](decentralized_ML_perspective-16.pdf)
+- [Game of Agents – Episode 1: Let there be Agents](Game%20of%20Agents%20%E2%80%94%20Episode%201_%20Let%20there%20be%20Agents%20_%20by%20Abhishek%20Singh%20_%20Medium.pdf)
+- [Game of Agents – Episode 2: The Great Library of Alexandria 2.0](Game%20of%20Agents%20%E2%80%94%20Episode%202_%20The%20Great%20Library%20of%20Alexandria%202.0%20_%20by%20Abhishek%20Singh%20_%20Medium.pdf)
+- [Scaling Trust Beyond DNS – NANDA Registry](v0.1%20Scaling%20Trust%20Beyond%20DNS%20-%20NANDA-Registry.pdf)
+- [Upgrade or Switch – The Need for New Registry](v0.1%20Upgrade%20or%20Switch%20-%20The%20Need%20for%20New%20Registry.pdf)
+- [Internet of Agents Architecture (Agentic Chat Demo)](NandaRegistry_AgenticChat.pdf)
 ---
 
 ## Governance and Neutrality
