@@ -66,10 +66,10 @@ AI is shifting from monolithic models to ecosystems of autonomous agents. As bil
 
 ## Learn More
 
-- [A Perspective on Decentralizing AI](./docs/decentralized_ML_perspective-16.pdf)
-- [Game of Agents – Episode 1 & 2](./docs/Game of Agents — Episode 1_ Let there be Agents _ by Abhishek Singh _ Medium.pdf)
-- [Verified AgentFacts & NANDA Registry Paper](./docs/v0.1 Scaling Trust Beyond DNS - NANDA-Registry.pdf)
-- [Internet of Agents Architecture](./docs/NandaRegistry_AgenticChat.pdf)
+- [A Perspective on Decentralizing AI](/decentralized_ML_perspective-16.pdf)
+- [Game of Agents – Episode 1 & 2](Game%20of%20Agents%20—%20Episode%201_%20Let%20there%20be%20Agents%20_%20by%20Abhishek%20Singh%20_%20Medium.pdf)
+- [Verified AgentFacts & NANDA Registry Paper](v0.1%20Scaling%20Trust%20Beyond%20DNS%20-%20NANDA-Registry.pdf)
+- [Internet of Agents Architecture](NandaRegistry_AgenticChat.pdf)
 
 ---
 
