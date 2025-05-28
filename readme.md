@@ -6,7 +6,7 @@ Welcome to the official repository for **NANDA** (Networked Agents and Decentral
 
 ## What is NANDA?
 
-NANDA is building the foundational infrastructure for the **Internet of Agents** — a new web architecture where autonomous agents interact, transact, and coordinate on behalf of users across decentralized networks.
+NANDA is building the foundational infrastructure for the **Internet of Agents** a new web architecture where autonomous agents interact, transact, and coordinate on behalf of users across decentralized networks.
 
 > Imagine saying: `@moonbakery get me the usual cake for my daughter’s birthday`, and your agent handles the rest — securely, privately, and without needing five apps and three emails.
 
