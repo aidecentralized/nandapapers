@@ -22,13 +22,13 @@ Explores the need for an agent registry to enable discovery, trust, and collabor
 
 ---
 
-## 4. [Scaling Trust Beyond DNS – NANDA Registry](v0.1%20Scaling%20Trust%20Beyond%20DNS%20-%20NANDA-Registry.pdf)
+## 4. [Scaling Trust Beyond DNS – NANDA Registry](Scaling%20Trust%20Beyond%20DNS%20-%20How%20NANDA%20Registry%20and%20Verified%20AgentFacts%20Unlock%20the%20Internet%20of%20AI%20Agents.pdf)
 
 Details the design of a minimal, privacy-preserving registry architecture for agent discovery. Introduces the AgentFacts schema, TTL-based endpoint resolution, and cryptographic verification for agent capabilities.
 
 ---
 
-## 5. [Upgrade or Switch – The Need for New Registry](v0.1%20Upgrade%20or%20Switch%20-%20The%20Need%20for%20New%20Registry.pdf)
+## 5. [Upgrade or Switch – The Need for New Registry](Upgrade%20or%20Switch%20-%20The%20Need%20for%20New%20Registry%20Architecture%20for%20the%20Internet%20of%20AI%20Agents.pdf)
 
 Analyzes the limitations of DNS and web infrastructure for agentic systems. Compares extending current systems versus building new registries. Offers historical analogies like dial-up to broadband to argue for infrastructure transition.
 
