@@ -42,7 +42,7 @@ Presents a layered architecture for live multi-agent interaction via chat interf
 
 ## 7. [Survey of AI Agent Registry Solutions](v0.2%20Survey_of_AI_Agent_Registry_Solutions.pdf)
 
-Compares leading registry architectures—MCP, A2A, Microsoft Entra Agent ID, and NANDA—across security, scalability, authentication, and maintainability. Highlights NANDA’s AgentFacts as a privacy-preserving, cryptographically verifiable schema purpose-built for dynamic, multi-agent systems.
+Compares leading registry architectures—MCP, A2A, Microsoft Entra Agent ID, and NANDA, across security, scalability, authentication, and maintainability. Highlights NANDA’s AgentFacts as a privacy-preserving, cryptographically verifiable schema purpose-built for dynamic, multi-agent systems.
 
 ---
 
