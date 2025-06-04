@@ -49,6 +49,13 @@ Compares leading registry architectures - MCP, A2A, Microsoft Entra Agent ID, an
 
 Proposes a federated security architecture that combines NANDA’s minimal registry with the Agent Name Service (ANS) for dual-trust anchoring. Features include verifiable credentials, zero-knowledge proofs, and a modular governance system for agent discovery and capability validation.
 
+## 9. [Collaborative Agentic AI Needs Interoperability Across Ecosystems](Collaborative%20Agentic%20AI%20Needs%20Interoperability%20Across%20Ecosystems.pdf)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2505.21550-00ff00.svg)](https://arxiv.org/abs/2505.21550)
+
+Identifies that we are headed toward protocol wars in agentic AI ecosystems. Proposes minimal web-based standards as a solution to enable interoperability across agents and prevent fragmentation in the ecosystem.
+
+
 ## License
 
 This content is distributed under the MIT License.
