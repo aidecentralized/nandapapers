@@ -21,13 +21,13 @@ Introduces the rise of intelligent agents from early LLM tooling to multi-agent 
 Explores the need for an agent registry to enable discovery, trust, and collaboration among dynamic and ephemeral AI agents. Compares governance models including platform-led, consortium-led, and decentralized blockchain-based approaches.
 
 ---
-## 4. [Scaling Trust Beyond DNS – NANDA Registry](v0.2%20Beyond%20DNS%20-%20Unlocking%20the%20%20Internet%20of%20AI%20Agents%20via%20the%20NANDA%20Quilt%20of%20Registries%20and%20Verified%20AgentFacts.pdf)
+## 4. [Scaling Trust Beyond DNS – NANDA Registry](v0.21%20Beyond%20DNS%20-%20Unlocking%20the%20%20Internet%20of%20AI%20Agents%20via%20the%20NANDA%20Quilt%20of%20Registries%20and%20Verified%20AgentFacts.pdf)
 
 Details the design of a minimal, privacy-preserving registry architecture for agent discovery. Introduces the AgentFacts schema, TTL-based endpoint resolution, and cryptographic verification for agent capabilities. Offers concrete mechanisms for multi-endpoint routing, least-disclosure queries, and rapid revocation in decentralized agent ecosystems.
 
 ---
 
-## 5. [Upgrade or Switch – The Need for New Registry](v0.2%20Upgrade%20or%20Switch%20-%20Do%20We%20Need%20a%20New%20Registry%20Architecture%20for%20the%20Internet%20of%20AI%20Agents.pdf)
+## 5. [Upgrade or Switch – The Need for New Registry](v0.21%20Upgrade%20or%20Switch%20-%20Do%20We%20Need%20a%20New%20Registry%20Architecture%20for%20the%20Internet%20of%20AI%20Agents.pdf)
 
 Analyzes the limitations of DNS and web infrastructure for AI agent systems. Weighs incremental upgrades (e.g., DNS push, SVCB records) against purpose-built registries. Offers analogies like dial-up to broadband and outlines the technical deltas introduced by the agent paradigm.
 
