@@ -27,7 +27,7 @@ Details the design of a minimal, privacy-preserving registry architecture for ag
 
 ---
 
-## 5. [Upgrade or Switch – The Need for New Registry](v0.21%20Upgrade%20or%20Switch%20-%20Do%20We%20Need%20a%20New%20Registry%20Architecture%20for%20the%20Internet%20of%20AI%20Agents.pdf)
+## 5. [Upgrade or Switch – The Need for New Registry](v0.3%20Upgrade%20or%20Switch%20-%20Do%20We%20Need%20a%20New%20Registry%20Architecture%20for%20the%20Internet%20of%20AI%20Agents.pdf)
 
 Analyzes the limitations of DNS and web infrastructure for AI agent systems. Weighs incremental upgrades (e.g., DNS push, SVCB records) against purpose-built registries. Offers analogies like dial-up to broadband and outlines the technical deltas introduced by the agent paradigm.
 
