@@ -2,6 +2,8 @@
 
 This repository contains six key papers outlining the architectural, strategic, and technical foundations of the NANDA (Networked Agents and Decentralized AI) initiative at MIT Media Lab. Each document contributes uniquely to the vision of the Internet of Agents.
 
+## 📝 Willing to contribute? Refer: [Onboarding](Onboarding%20to%20NANDA%20writing.md)
+
 ---
 
 ## 1. [A Perspective on Decentralizing AI](decentralized_ML_perspective-16.pdf)
