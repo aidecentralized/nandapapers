@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive NANDA Writing Group Onboarding Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals (Tailwind stone/zinc for background, muted teal/sky for accents) -->
+    <!-- Application Structure Plan: A single-page vertical timeline/journey map. The top features an interactive dashboard with a bar chart summarizing skill/time commitment progression. Below, each of the 5 onboarding levels is presented as a detailed card in sequential order. This structure was chosen because the source material is a linear process, making a journey map the most intuitive navigation model. The dashboard chart provides an immediate high-level synthesis of the commitment required, which is a key implicit message in the report. -->
+    <!-- Visualization & Content Choices: 1. Commitment Chart: Report Info -> Skill/Bandwidth progression. Goal -> Compare. Viz -> Grouped Bar Chart. Interaction -> Hover tooltips. Justification -> Quantifies and visualizes the increasing demands of the journey effectively. Library -> Chart.js (Canvas). 2. Onboarding Process: Report Info -> L1-L5 steps. Goal -> Organize/Inform. Viz -> Vertical Timeline with styled HTML/Tailwind cards. Interaction -> Scroll-based navigation highlighting. Justification -> Mirrors the linear flow of the source material for intuitive understanding. Library/Method -> HTML/CSS/JS. 3. Level Details: Report Info -> Tasks, Links, Skills. Goal -> Inform. Viz -> Styled list/text blocks with Unicode icons. Interaction -> Clickable links. Justification -> Clear, scannable presentation of actionable information. Library/Method -> HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            width: 100%;
+            max-width: 800px;
+            max-height: 400px;
+        }
+        .nav-active {
+            color: #0369a1; /* text-sky-700 */
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-sky-800 mb-4">NANDA Writing Group </h1>
+            <h2 class="text-3xl md:text-3xl font-bold text-sky-500 mb-4">Onboarding Journey</h2>
+            <p class="max-w-3xl mx-auto text-lg text-stone-600">
+                This guide outlines the 5-level journey to join and grow within Project NANDA. Explore the steps, required skills, and commitment level to progress from a new contributor to a project lead.
+            </p>
+        </header>
+
+        <section id="dashboard" class="mb-16">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-stone-200">
+                <h2 class="text-2xl font-bold text-center mb-2">Commitment Growth at a Glance</h2>
+                 <p class="text-center text-stone-600 mb-6">
+                    See how the required skill level and time commitment (bandwidth) increase as you progress through the NANDA journey.
+                </p>
+                <div class="chart-container">
+                    <canvas id="commitmentChart"></canvas>
+                </div>
+            </div>
+        </section>
+        
+        <div class="flex flex-col md:flex-row gap-12">
+            <nav id="journey-nav" class="md:w-1/4 md:sticky top-8 self-start bg-white p-6 rounded-2xl shadow-lg border border-stone-200">
+                <h3 class="text-xl font-bold mb-4">Journey Map</h3>
+                <ul class="space-y-3">
+                    <li><a href="#level-1" class="nav-link text-stone-600 hover:text-sky-700 transition-all duration-300 ease-in-out text-lg">L1: Post</a></li>
+                    <li><a href="#level-2" class="nav-link text-stone-600 hover:text-sky-700 transition-all duration-300 ease-in-out text-lg">L2: Review</a></li>
+                    <li><a href="#level-3" class="nav-link text-stone-600 hover:text-sky-700 transition-all duration-300 ease-in-out text-lg">L3: Core Member Review</a></li>
+                    <li><a href="#level-4" class="nav-link text-stone-600 hover:text-sky-700 transition-all duration-300 ease-in-out text-lg">L4: Contribute</a></li>
+                    <li><a href="#level-5" class="nav-link text-stone-600 hover:text-sky-700 transition-all duration-300 ease-in-out text-lg">L5: Lead</a></li>
+                </ul>
+            </nav>
+
+            <main id="journey-content" class="md:w-3/4">
+                <div class="relative pl-8 md:pl-12 border-l-2 border-stone-300 space-y-16">
+                    
+                    <section id="level-1" class="journey-section relative">
+                        <div class="absolute -left-[4.2rem] md:-left-[5.5rem] top-0.5 w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">L1</div>
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border border-stone-200 hover:shadow-xl transition-shadow duration-300">
+                            <h2 class="text-3xl font-bold text-sky-800 mb-2">📢 Post</h2>
+                            <p class="text-stone-600 mb-6">Begin your journey by engaging with the community. This first step involves reading a NANDA paper, summarizing it, and sharing your thoughts to demonstrate initial comprehension and communication skills.</p>
+                            
+                            <h3 class="text-xl font-semibold mb-3">✅ Tasks</h3>
+                            <ul class="list-disc list-inside space-y-2 mb-6 text-stone-700">
+                                <li>Read a NANDA Paper from the list in L2.</li>
+                                <li>Write a 3-4 paragraph summary and post it on LinkedIn, tagging Project NANDA.</li>
+                                <li>Complete the open source disclosure form.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold mb-3">🔗 Links</h3>
+                            <div class="flex flex-wrap gap-4 mb-6">
+                                <a href="https://www.linkedin.com/company/projectnanda" target="_blank" class="bg-sky-100 text-sky-800 px-4 py-2 rounded-lg font-medium hover:bg-sky-200 transition">Project NANDA on LinkedIn</a>
+                                <a href="https://forms.gle/BzV4x2xPcBDtbCNT9" target="_blank" class="bg-sky-100 text-sky-800 px-4 py-2 rounded-lg font-medium hover:bg-sky-200 transition">L1 Submission Form</a>
+                            </div>
+
+                            <h3 class="text-xl font-semibold mb-3">💡 Skills & Bandwidth</h3>
+                            <p class="text-stone-700"><strong>Skills:</strong> Reading comprehension, summarization, professional communication. (🧠)</p>
+                            <p class="text-stone-700"><strong>Bandwidth:</strong> ~1-2 hours (⏳)</p>
+                        </div>
+                    </section>
+
+                    <section id="level-2" class="journey-section relative">
+                        <div class="absolute -left-[4.2rem] md:-left-[5.5rem] top-0.5 w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">L2</div>
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border border-stone-200 hover:shadow-xl transition-shadow duration-300">
+                            <h2 class="text-3xl font-bold text-sky-800 mb-2">🔎 Review</h2>
+                            <p class="text-stone-600 mb-6">Dive deeper into the technical details. This stage requires you to perform a critical, line-by-line review of a NANDA paper, showcasing your analytical thinking.</p>
+                            
+                            <h3 class="text-xl font-semibold mb-3">✅ Tasks</h3>
+                            <ul class="list-disc list-inside space-y-2 mb-6 text-stone-700">
+                                <li>Choose one of the four official NANDA papers for a detailed review.</li>
+                                <li>Create a document with a line-by-line review.</li>
+                                <li>Upload your review to the L2 submission form.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold mb-3">🔗 Links</h3>
+                            <div class="flex flex-wrap gap-4 mb-6">
+                                <a href="https://forms.gle/qtWiTQKL2Jz7Nh2EA" target="_blank" class="bg-sky-100 text-sky-800 px-4 py-2 rounded-lg font-medium hover:bg-sky-200 transition">L2 Submission Form</a>
+                            </div>
+
+                            <h3 class="text-xl font-semibold mb-3">💡 Skills & Bandwidth</h3>
+                            <p class="text-stone-700"><strong>Skills:</strong> Critical reading, analytical thinking, technical comprehension. (🧠🧠)</p>
+                            <p class="text-stone-700"><strong>Bandwidth:</strong> ~3-6 hours (⏳⏳)</p>
+                        </div>
+                    </section>
+
+                    <section id="level-3" class="journey-section relative">
+                        <div class="absolute -left-[4.2rem] md:-left-[5.5rem] top-0.5 w-12 h-12 bg-sky-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">L3</div>
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border border-stone-200 hover:shadow-xl transition-shadow duration-300">
+                            <h2 class="text-3xl font-bold text-sky-800 mb-2">📝 Review to Become Core Member</h2>
+                            <p class="text-stone-600 mb-6">Synthesize your analysis to qualify for the core team. This level involves structuring your feedback into a concise "3-3-3" review and articulating your potential contributions.</p>
+                            
+                            <h3 class="text-xl font-semibold mb-3">✅ Tasks</h3>
+                            <ul class="list-disc list-inside space-y-2 mb-6 text-stone-700">
+                                <li>Write a "3-3-3" review (3 Strengths, 3 Weaknesses, 3 Changes) for the paper from L2.</li>
+                                <li>Write a one-paragraph summary of your writing/academic skills and potential contribution.</li>
+                                <li>Compile and submit responses in the L3 Google Form.</li>
+                            </ul>
+                            
+                            <div class="bg-teal-50 border-l-4 border-teal-500 text-teal-800 p-4 rounded-r-lg mb-6">
+                                <p class="font-bold">Core Team Invitation</p>
+                                <p>After this step, the core team reviews your work for a potential invitation to the writing group.</p>
+                            </div>
+
+                            <h3 class="text-xl font-semibold mb-3">🔗 Links</h3>
+                            <div class="flex flex-wrap gap-4 mb-6">
+                                <a href="https://forms.gle/TU14TkW29bEGipRn6" target="_blank" class="bg-sky-100 text-sky-800 px-4 py-2 rounded-lg font-medium hover:bg-sky-200 transition">L3 Submission Form</a>
+                            </div>
+
+                            <h3 class="text-xl font-semibold mb-3">💡 Skills & Bandwidth</h3>
+                            <p class="text-stone-700"><strong>Skills:</strong> Advanced critical analysis, self-assessment, concise communication. (🧠🧠🧠)</p>
+                            <p class="text-stone-700"><strong>Bandwidth:</strong> ~2-4 hours (⏳⏳)</p>
+                        </div>
+                    </section>
+
+                    <section id="level-4" class="journey-section relative">
+                        <div class="absolute -left-[4.2rem] md:-left-[5.5rem] top-0.5 w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">L4</div>
+                        <div class="bg-white p-8 rounded-2xl shadow-lg border border-stone-200 hover:shadow-xl transition-shadow duration-300">
+                            <h2 class="text-3xl font-bold text-teal-800 mb-2">🤝 Contribute to Paper</h2>
+                            <p class="text-stone-600 mb-6">Join the inner circle and become an active contributor. After being invited, you will join a writing team for an ongoing paper, applying your skills collaboratively to push the project forward.</p>
+                            
+                            <h3 class="text-xl font-semibold mb-3">✅ Tasks</h3>
+                            <ul class="list-disc list-inside space-y-2 mb-6 text-stone-700">
+                                <li>Join a writing team for an ongoing NANDA paper.</li>
+                                <li>Actively contribute to discussions, research, writing, and feedback.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold mb-3">💡 Skills & Bandwidth</h3>
+                            <p class="text-stone-700"><strong>Skills:</strong> Collaborative writing, research, technical writing, constructive feedback. (🧠🧠🧠🧠)</p>
+                            <p class="text-stone-700"><strong>Bandwidth:</strong> ~5-10+ hours/week (⏳⏳⏳)</p>
+                        </div>
+                    </section>
+                    
+                    <section id="level-5" class="journey-section relative">
+                        <div class="absolute -left-[4.2rem] md:-left-[5.5rem] top-0.5 w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">L5</div>
+                         <div class="bg-white p-8 rounded-2xl shadow-lg border border-stone-200 hover:shadow-xl transition-shadow duration-300">
+                            <h2 class="text-3xl font-bold text-teal-800 mb-2">🚀 Lead a Paper</h2>
+                            <p class="text-stone-600 mb-6">Shape the future of NANDA. At the highest level, you will leverage your expertise and vision to propose a new research idea and lead the entire effort from conception to publication.</p>
+                            
+                            <h3 class="text-xl font-semibold mb-3">✅ Tasks</h3>
+                            <ul class="list-disc list-inside space-y-2 mb-6 text-stone-700">
+                                <li>Develop and propose a novel idea for a new NANDA paper.</li>
+                                <li>Lead the writing process, from concept to finalization, coordinating contributors.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold mb-3">💡 Skills & Bandwidth</h3>
+                            <p class="text-stone-700"><strong>Skills:</strong> Ideation, leadership, project management, mentorship, strategic thinking. (🧠🧠🧠🧠🧠)</p>
+                            <p class="text-stone-700"><strong>Bandwidth:</strong> ~10-20+ hours/week (⏳⏳⏳⏳)</p>
+                        </div>
+                    </section>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('commitmentChart').getContext('2d');
+            
+            const data = {
+                labels: ['L1: Post', 'L2: Review', 'L3: Core Review', 'L4: Contribute', 'L5: Lead'],
+                datasets: [
+                    {
+                        label: 'Skill Level (1-5)',
+                        data: [1, 2, 3, 4, 5],
+                        backgroundColor: 'rgba(3, 105, 161, 0.7)', // sky-700
+                        borderColor: 'rgba(3, 105, 161, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Avg. Bandwidth (hours)',
+                        data: [1.5, 4.5, 3, 7.5, 15],
+                        backgroundColor: 'rgba(13, 148, 136, 0.7)', // teal-600
+                        borderColor: 'rgba(13, 148, 136, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }
+                ]
+            };
+
+            const commitmentChart = new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Value (Hours / Skill Level)',
+                                font: {
+                                    size: 14
+                                }
+                            }
+                        },
+                        x: {
+                           ticks: {
+                                callback: function(value, index, values) {
+                                    const label = this.getLabelForValue(value);
+                                    if (label.length > 16) {
+                                        return label.split(':').map(l => l.trim());
+                                    }
+                                    return label;
+                                }
+                           }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            enabled: true,
+                            backgroundColor: '#1f2937', // gray-800
+                            titleFont: {
+                                size: 16
+                            },
+                            bodyFont: {
+                                size: 14
+                            },
+                            padding: 12,
+                            cornerRadius: 6,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        if (context.dataset.label.includes('Bandwidth')) {
+                                            label += context.parsed.y + ' hrs';
+                                        } else {
+                                             label += context.parsed.y;
+                                        }
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.journey-section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('nav-active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
