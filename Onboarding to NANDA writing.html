@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NANDA Onboarding Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Sky Blue accent -->
+    <!-- Application Structure Plan: A vertical, single-page timeline structure was chosen because it directly mirrors the linear L1-L5 progression of the source report. This is the most intuitive way for a user to follow a step-by-step process. The flow starts with a high-level overview and a summary chart, then allows users to progressively drill down into the details of each level via interactive accordion panels. A sticky navigation bar enables quick jumps between stages. This design prioritizes clarity and ease of navigation for a procedural document, turning a static guide into an engaging and scannable roadmap. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: L1-L5 Process Steps -> Goal: Organize/Inform -> Viz: Interactive Vertical Timeline/Roadmap (HTML/CSS/JS) -> Interaction: Users scroll through or click nav links to view stages. Accordions expand/collapse to show details. -> Justification: Breaks down a long text document into manageable, interactive chunks, preventing information overload.
+        - Report Info: Increasing Skill & Bandwidth Requirements -> Goal: Compare/Change -> Viz: Grouped Bar Chart (Chart.js/Canvas) -> Interaction: Hover tooltips show precise values for each level. -> Justification: Provides an immediate visual summary of the core trend—escalating commitment—which is much more impactful than text alone.
+        - Report Info: Tasks at each level -> Goal: Inform -> Viz: Accordion Panels (HTML/JS) -> Interaction: Click to expand/collapse. -> Justification: Keeps the main view clean and allows users to focus on one level at a time.
+        - Report Info: External Links -> Goal: Action -> Viz: Styled Buttons (HTML/CSS) -> Interaction: Click to navigate to external forms/papers. -> Justification: Creates clear, actionable calls-to-action for the user.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .nav-active {
+            color: #0284c7; /* sky-600 */
+            font-weight: 600;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="sticky top-0 z-20 bg-white/80 backdrop-blur-lg shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-slate-800">NANDA Onboarding Journey</h1>
+                </div>
+                <nav class="hidden md:block">
+                    <div id="nav-links" class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">Overview</a>
+                        <a href="#level-1" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">L1: Post</a>
+                        <a href="#level-2" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">L2: Review</a>
+                        <a href="#level-3" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">L3: Core</a>
+                        <a href="#level-4" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">L4: Contribute</a>
+                        <a href="#level-5" class="px-3 py-2 rounded-md text-sm font-medium text-slate-600 hover:text-sky-600 transition-colors">L5: Lead</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Overview Section -->
+        <section id="overview" class="mb-16 scroll-mt-20">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Your Path to becoming a NANDA Core Contributor</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">This interactive guide outlines the 5-level journey to join and grow within Project NANDA. Each level builds upon the last, increasing in responsibility and impact. Use the chart below to visualize the progression of skills and time commitment, and explore each level's detailed requirements in the roadmap that follows.</p>
+            </div>
+            
+            <div class="mt-12">
+                <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                    <h3 class="text-lg font-semibold text-slate-800 text-center mb-4">Progression of Skill & Bandwidth Requirements</h3>
+                    <div class="chart-container">
+                        <canvas id="progressionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Journey Timeline -->
+        <div class="relative">
+            <!-- The vertical line -->
+            <div class="absolute left-1/2 -translate-x-1/2 md:left-6 h-full w-0.5 bg-slate-200" aria-hidden="true"></div>
+
+            <div id="journey-container" class="space-y-16">
+                <!-- Levels will be injected here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const journeyData = [
+                {
+                    level: 1,
+                    id: 'level-1',
+                    title: 'Post',
+                    icon: '📢',
+                    color: 'sky',
+                    summary: 'Begin your journey by engaging with the community. This first step involves reading a NANDA paper, summarizing it, and sharing your thoughts on a professional platform to demonstrate initial comprehension and communication skills.',
+                    skillLevel: 1,
+                    bandwidth: '1-2 hours',
+                    tasks: [
+                        { name: 'Read a NANDA Paper', description: 'Choose any one of the NANDA papers linked in the L2 description. Read it thoroughly to understand its core concepts.' },
+                        { name: 'Summarize & Post on LinkedIn', description: 'Write a 3-4 paragraph summary of the chosen paper and publish it on LinkedIn. Crucially, remember to tag the official Project NANDA LinkedIn page.' },
+                        { name: 'Complete Disclosures', description: 'Fill out the NANDA open source disclosure and submit the L1 form with a link to your post.' }
+                    ],
+                    links: [
+                        { name: 'Project NANDA on LinkedIn', url: 'https://www.linkedin.com/company/projectnanda' },
+                        { name: 'L1 Submission Form', url: 'https://forms.gle/BzV4x2xPcBDtbCNT9' }
+                    ]
+                },
+                {
+                    level: 2,
+                    id: 'level-2',
+                    title: 'Review',
+                    icon: '🔎',
+                    color: 'indigo',
+                    summary: 'Dive deeper into the technical details. This stage requires you to perform a critical, line-by-line review of a NANDA paper, showcasing your analytical thinking and technical understanding of the subject matter.',
+                    skillLevel: 2,
+                    bandwidth: '3-6 hours',
+                    tasks: [
+                        { name: 'Choose a Paper for Review', description: 'Select one of the four specified NANDA papers for a detailed line-by-line review.' },
+                        { name: 'Conduct Line-by-Line Review', description: 'Create a new document (e.g., Google Doc) where you provide a detailed review, including comments, questions, and suggestions for specific lines or sections.' },
+                        { name: 'Upload Review', description: 'Submit your review document by uploading a shared Google Drive link or a PDF link in the L2 Google Form.' }
+                    ],
+                    links: [
+                        { name: 'L2 Submission Form', url: 'https://forms.gle/qtWiTQKL2Jz7Nh2EA' }
+                    ]
+                },
+                {
+                    level: 3,
+                    id: 'level-3',
+                    title: 'Review to Become Core Member',
+                    icon: '�',
+                    color: 'violet',
+                    summary: 'Synthesize your analysis to qualify for the core team. This level involves structuring your feedback into a concise "3-3-3" review and articulating your potential contributions, which forms the basis for your invitation to the writing group.',
+                    skillLevel: 3,
+                    bandwidth: '2-4 hours',
+                    tasks: [
+                        { name: 'Write a "3-3-3" Review', description: 'For the same paper you reviewed in L2, compose a review detailing 3 Strengths, 3 Weaknesses, and 3 Changes you would make.' },
+                        { name: 'Summarize Your Skills', description: 'Write a one-paragraph summary describing your paper writing and academic skills, and how they can contribute to the NANDA writing effort.' },
+                        { name: 'Submit for Core Team Review', description: 'Compile and submit your responses in the L3 Google Form. The core team will review your work for a potential invitation.' }
+                    ],
+                    links: [
+                        { name: 'L3 Submission Form', url: 'https://forms.gle/TU14TkW29bEGipRn6' }
+                    ]
+                },
+                {
+                    level: 4,
+                    id: 'level-4',
+                    title: 'Contribute to Paper',
+                    icon: '🤝',
+                    color: 'purple',
+                    summary: 'Join the inner circle and become an active contributor. After being invited, you will join a writing team for an ongoing paper, applying your skills collaboratively to push the project forward.',
+                    skillLevel: 4,
+                    bandwidth: '5-10+ hours/week',
+                    tasks: [
+                        { name: 'Join a Writing Team', description: 'Once invited, you will be assigned to or choose to join a writing team for one of the ongoing NANDA papers.' },
+                        { name: 'Actively Contribute', description: 'Participate in team discussions, conduct research, write sections of the paper, provide feedback on others\' work, and help refine the content.' }
+                    ],
+                    links: []
+                },
+                {
+                    level: 5,
+                    id: 'level-5',
+                    title: 'Lead a Paper',
+                    icon: '🚀',
+                    color: 'fuchsia',
+                    summary: 'Shape the future of NANDA. At the highest level, you will leverage your expertise and vision to propose a new research idea and lead the entire effort from conception to publication, mentoring others along the way.',
+                    skillLevel: 5,
+                    bandwidth: '10-20+ hours/week',
+                    tasks: [
+                        { name: 'Propose a New Idea', description: 'Develop and propose a novel idea for a new NANDA paper that aligns with the project\'s mission and objectives.' },
+                        { name: 'Lead the Writing Effort', description: 'Take the lead in managing the entire writing process for your proposed paper, from conceptualization and outline creation to coordinating contributors and finalization.' }
+                    ],
+                    links: []
+                }
+            ];
+
+            const journeyContainer = document.getElementById('journey-container');
+            journeyData.forEach((item, index) => {
+                const isEven = index % 2 === 0;
+                const card = `
+                    <div class="relative flex items-center ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}">
+                        <div class="hidden md:block w-full"></div>
+                        <div class="hidden md:block relative px-3">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center text-2xl">
+                                ${item.icon}
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 bg-white rounded-xl shadow-lg p-6">
+                            <div class="flex items-center space-x-4">
+                               <div class="md:hidden w-12 h-12 rounded-full bg-white shadow-md flex-shrink-0 flex items-center justify-center text-2xl">
+                                    ${item.icon}
+                               </div>
+                               <div>
+                                   <span class="text-sm font-semibold text-${item.color}-600 uppercase">Level ${item.level}</span>
+                                   <h3 id="${item.id}" class="text-2xl font-bold text-slate-900 scroll-mt-20">${item.title}</h3>
+                               </div>
+                            </div>
+                            <p class="mt-3 text-slate-600">${item.summary}</p>
+                            <div class="mt-4 flex flex-wrap gap-4 text-sm">
+                                <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">Skill Level:</span>
+                                    <span>${'🧠'.repeat(item.skillLevel)}</span>
+                                </div>
+                                <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1 rounded-full">
+                                    <span class="font-semibold">Bandwidth:</span>
+                                    <span>${item.bandwidth}</span>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button class="accordion-toggle w-full text-left font-semibold text-slate-800 flex justify-between items-center">
+                                    <span>Detailed Steps</span>
+                                    <span class="transform transition-transform duration-300">▼</span>
+                                </button>
+                                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                                    <ul class="mt-4 space-y-3 border-l-2 border-slate-200 pl-4">
+                                        ${item.tasks.map(task => `
+                                            <li>
+                                                <p class="font-semibold text-slate-800">${task.name}</p>
+                                                <p class="text-slate-600 text-sm">${task.description}</p>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                    ${item.links.length > 0 ? `
+                                    <div class="mt-4 pt-4 border-t border-slate-200 flex flex-wrap gap-3">
+                                        ${item.links.map(link => `
+                                            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="inline-block bg-${item.color}-500 hover:bg-${item.color}-600 text-white text-sm font-medium py-2 px-4 rounded-lg transition-colors">
+                                                ${link.name}
+                                            </a>
+                                        `).join('')}
+                                    </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                journeyContainer.innerHTML += card;
+            });
+            
+            // Accordion Logic
+            const accordions = document.querySelectorAll('.accordion-toggle');
+            accordions.forEach(accordion => {
+                accordion.addEventListener('click', () => {
+                    const content = accordion.nextElementSibling;
+                    const arrow = accordion.querySelector('span:last-child');
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        arrow.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        arrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Chart.js implementation
+            const ctx = document.getElementById('progressionChart').getContext('2d');
+            const progressionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['L1', 'L2', 'L3', 'L4', 'L5'],
+                    datasets: [
+                        {
+                            label: 'Skill Level (1-5)',
+                            data: journeyData.map(j => j.skillLevel),
+                            backgroundColor: 'rgba(56, 189, 248, 0.6)', // sky-400
+                            borderColor: 'rgba(2, 132, 199, 1)', // sky-600
+                            borderWidth: 1,
+                            yAxisID: 'y',
+                        },
+                        {
+                            label: 'Min Bandwidth (Hours/Week)',
+                            data: [0.25, 0.5, 0.5, 5, 10], // Converted to weekly for consistency
+                            backgroundColor: 'rgba(167, 139, 250, 0.6)', // violet-400
+                            borderColor: 'rgba(124, 58, 237, 1)', // violet-600
+                            borderWidth: 1,
+                            yAxisID: 'y1',
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            type: 'linear',
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Skill Level'
+                            },
+                            max: 6,
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            type: 'linear',
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Bandwidth (Hours/Week)'
+                            },
+                            grid: {
+                                drawOnChartArea: false, // only draw grid lines for the first Y axis
+                            },
+                            max: 20
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        if(context.datasetIndex === 0){
+                                           label += context.parsed.y;
+                                        } else {
+                                           // For bandwidth, show the range text instead of the normalized value
+                                           const originalBandwidthText = journeyData[context.dataIndex].bandwidth;
+                                           label = `Bandwidth: ${originalBandwidthText}`;
+                                        }
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Nav link active state on scroll
+            const sections = document.querySelectorAll('main section, h3[id^="level-"]');
+            const navLinks = document.querySelectorAll('#nav-links a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            const href = link.getAttribute('href');
+                            const targetId = entry.target.id;
+
+                            // Adjust for h3 targets inside the timeline
+                            const finalTargetId = targetId.startsWith('level-') ? targetId : `overview`;
+
+                            if (href === `#${finalTargetId}`) {
+                                link.classList.add('nav-active');
+                            } else {
+                                link.classList.remove('nav-active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
