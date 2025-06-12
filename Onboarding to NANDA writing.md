@@ -1,4 +1,4 @@
-# NANDA Onboarding Journey: A Step-by-Step Guide
+# NANDA Writing Group Onboarding Journey: A Step-by-Step Guide
 
 This guide outlines the 5-level journey to join and grow within Project NANDA. Each level builds upon the last, increasing in responsibility and impact.
 
