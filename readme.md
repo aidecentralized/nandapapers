@@ -5,7 +5,7 @@ This repository contains six key papers outlining the architectural, strategic, 
 ## 📝 Willing to contribute? Refer: [Onboarding](Onboarding%20to%20NANDA%20writing.md)
 
 ---
-## [Scaling Trust Beyond DNS – NANDA Index, AgentFacts and Adapative Resolution](v0.3%20Beyond%20DNS%20-%20Unlocking%20the%20%20Internet%20of%20AI%20Agents%20via%20the%20NANDA%20Index%20and%20Verified%20AgentFacts.pdf)
+## [Beyond DNS – NANDA Index, AgentFacts and Adapative Resolution](v0.3%20Beyond%20DNS%20-%20Unlocking%20the%20%20Internet%20of%20AI%20Agents%20via%20the%20NANDA%20Index%20and%20Verified%20AgentFacts.pdf)
 
 Details the design of a minimal, privacy-preserving index architecture for agent discovery. Introduces the AgentFacts schema, TTL-based endpoint resolution, and cryptographic verification for agent capabilities. Offers concrete mechanisms for multi-endpoint routing, least-disclosure queries, and rapid revocation in decentralized agent ecosystems.
 
