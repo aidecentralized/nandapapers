@@ -60,6 +60,13 @@ Compares leading registry architectures - MCP, A2A, Microsoft Entra Agent ID, an
 
 Identifies that we are headed toward protocol wars in agentic AI ecosystems. Proposes minimal web-based standards as a solution to enable interoperability across agents and prevent fragmentation in the ecosystem.
 
+---
+
+## [State of Agentic AI in Business: Report](v0.1State%20of%20AI%20in%20Business%202025%20Report.pdf)
+
+Investigates the stark disparity in enterprise GenAI and Agentic AI adoption, identifying the critical gap between static tools and learning-capable systems.
+
+
 
 ## License
 
