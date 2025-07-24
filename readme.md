@@ -66,6 +66,13 @@ Identifies that we are headed toward protocol wars in agentic AI ecosystems. Pro
 
 Investigates the stark disparity in enterprise GenAI and Agentic AI adoption, identifying the critical gap between static tools and learning-capable systems.
 
+---
+
+## [Using the NANDA Index Architecture in Practice: An Enterprise Perspective](v0.1NANDA_Use_Cases.pdf)
+
+Presents the NANDA framework for secure AI agent ecosystems and cross-protocol interoperability, and explores enterprise use cases. Introduces Zero Trust Agentic Access (ZTAA) and Agent Visibility & Control (AVC) for enterprise governance of autonomous agent collaboration.
+
+
 
 
 ## License
