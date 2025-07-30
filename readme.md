@@ -39,7 +39,7 @@ Investigates the stark disparity in enterprise GenAI and Agentic AI adoption, id
 
 ---
 
-## [Using the NANDA Index Architecture in Practice: An Enterprise Perspective](v0.1%20NANDA%20Index%20Architecture%20in%20Practice:%20An%20Enterprise%20Perspective.pdf)
+## [Using the NANDA Index Architecture in Practice: An Enterprise Perspective](v0.1%20NANDA%20Index%20Architecture%20in%20Practice%3A%20An%20Enterprise%20Perspective.pdf)
 
 Presents the NANDA framework for secure AI agent ecosystems and cross-protocol interoperability, and explores enterprise use cases. Introduces Zero Trust Agentic Access (ZTAA) and Agent Visibility & Control (AVC) for enterprise governance of autonomous agent collaboration.
 
