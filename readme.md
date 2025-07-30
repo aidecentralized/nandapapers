@@ -10,6 +10,11 @@ This repository contains six key papers outlining the architectural, strategic, 
 Details the design of a minimal, privacy-preserving index architecture for agent discovery. Introduces the AgentFacts schema, TTL-based endpoint resolution, and cryptographic verification for agent capabilities. Offers concrete mechanisms for multi-endpoint routing, least-disclosure queries, and rapid revocation in decentralized agent ecosystems.
 
 ---
+## [NANDA Adaptive Resolver: Architecture for Dynamic Resolution of AI Agent Names](v0.1%20NANDA%20Adaptive%20Resolver%20-%20Architecture%20for%20Dynamics%20Resolution%20of%20AI%20Agent%20Names.pdf)
+
+AdaptiveResolver is a dynamic microservice architecture designed to address the limitations of static endpoint resolution for AI agent communication in distributed, heterogeneous environments.
+
+---
 
 ## [Upgrade or Switch – The Need for New Registry](v0.3%20Upgrade%20or%20Switch%20-%20Do%20We%20Need%20a%20New%20Registry%20Architecture%20for%20the%20Internet%20of%20AI%20Agents.pdf)
 
