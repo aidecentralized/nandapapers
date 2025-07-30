@@ -33,6 +33,23 @@ Proposes a federated security architecture that combines NANDA’s minimal regis
 Outlines five foundational challenges for decentralized AI systems: privacy, verifiability, incentives, orchestration, and user experience. The paper proposes a layered architectural approach and highlights parallels with internet infrastructure like TCP/IP and DNS.
 
 ---
+## [State of Agentic AI in Business: Report](v0.1State%20of%20AI%20in%20Business%202025%20Report.pdf)
+
+Investigates the stark disparity in enterprise GenAI and Agentic AI adoption, identifying the critical gap between static tools and learning-capable systems.
+
+---
+
+## [Using the NANDA Index Architecture in Practice: An Enterprise Perspective](v0.1%20NANDA%20Index%20Architecture%20in%20Practice:%20An%20Enterprise%20Perspective.pdf)
+
+Presents the NANDA framework for secure AI agent ecosystems and cross-protocol interoperability, and explores enterprise use cases. Introduces Zero Trust Agentic Access (ZTAA) and Agent Visibility & Control (AVC) for enterprise governance of autonomous agent collaboration.
+
+---
+
+## [Survey of AI Agent Registry Solutions](v0.2%20Survey_of_AI_Agent_Registry_Solutions.pdf)
+
+Compares leading registry architectures - MCP, A2A, Microsoft Entra Agent ID, and NANDA, across security, scalability, authentication, and maintainability. Highlights NANDA’s AgentFacts as a privacy-preserving, cryptographically verifiable schema purpose-built for dynamic, multi-agent systems.
+
+---
 
 ## [Game of Agents – Episode 1: Let there be Agents](Game%20of%20Agents%20%E2%80%94%20Episode%201_%20Let%20there%20be%20Agents%20_%20by%20Abhishek%20Singh%20_%20Medium.pdf)
 
@@ -52,13 +69,6 @@ Presents a layered architecture for live multi-agent interaction via chat interf
 
 ---
 
-## [Survey of AI Agent Registry Solutions](v0.2%20Survey_of_AI_Agent_Registry_Solutions.pdf)
-
-Compares leading registry architectures - MCP, A2A, Microsoft Entra Agent ID, and NANDA, across security, scalability, authentication, and maintainability. Highlights NANDA’s AgentFacts as a privacy-preserving, cryptographically verifiable schema purpose-built for dynamic, multi-agent systems.
-
-
----
-
 ## [Collaborative Agentic AI Needs Interoperability Across Ecosystems](Collaborative%20Agentic%20AI%20Needs%20Interoperability%20Across%20Ecosystems.pdf)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2505.21550-00ff00.svg)](https://arxiv.org/abs/2505.21550)
@@ -67,15 +77,7 @@ Identifies that we are headed toward protocol wars in agentic AI ecosystems. Pro
 
 ---
 
-## [State of Agentic AI in Business: Report](v0.1State%20of%20AI%20in%20Business%202025%20Report.pdf)
 
-Investigates the stark disparity in enterprise GenAI and Agentic AI adoption, identifying the critical gap between static tools and learning-capable systems.
-
----
-
-## [Using the NANDA Index Architecture in Practice: An Enterprise Perspective](v0.1NANDA_Use_Cases.pdf)
-
-Presents the NANDA framework for secure AI agent ecosystems and cross-protocol interoperability, and explores enterprise use cases. Introduces Zero Trust Agentic Access (ZTAA) and Agent Visibility & Control (AVC) for enterprise governance of autonomous agent collaboration.
 
 
 
